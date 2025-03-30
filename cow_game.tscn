@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cyl6q5ppylx7d"]
 
 [ext_resource type="Script" uid="uid://c1y67o7j7qf2w" path="res://cow.gd" id="1_abhfc"]
-[ext_resource type="PackedScene" uid="uid://cb4dihae3rsyq" path="res://Cow.glb" id="1_glsep"]
+[ext_resource type="PackedScene" uid="uid://dqvmjxxfy1pnr" path="res://Cow.glb" id="1_glsep"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hopuf"]
 albedo_color = Color(0.118976, 0.228719, 0.119361, 1)
@@ -28,10 +28,8 @@ mesh = SubResource("PlaneMesh_s5ssi")
 [node name="Cow" type="CharacterBody3D" parent="."]
 script = ExtResource("1_abhfc")
 
-[node name="Cow" parent="Cow" instance=ExtResource("1_glsep")]
+[node name="CowModel" parent="Cow" instance=ExtResource("1_glsep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0186618, 0, 0.647953)
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Cow/Cow"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cow"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.406982, 1.00476, 0.54248)

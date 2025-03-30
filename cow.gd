@@ -4,12 +4,12 @@ extends CharacterBody3D
 @export var turn_speed := 2.0  # Speed of the cow's rotation
 
 var direction := Vector3.ZERO
-var animation_player : AnimationPlayer
+var animation_player
 var rotation_direction := 0.0  # Keeps track of the rotational movement
 
 func _ready():
 	# Get the AnimationPlayer node (adjust path if necessary)
-	animation_player = $CowModel/AnimationPlayer
+	animation_player = get_node("CowModel/AnimationPlayer") 
 	if animation_player == null:
 		print("AnimationPlayer node not found!")
 	else:
