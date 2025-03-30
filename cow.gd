@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-@export var speed := 5.0  # Speed of the cow's movement
-@export var turn_speed := 2.0  # Speed of the cow's rotation
+@export var speed := 1.5  # Speed of the cow's movement
+@export var turn_speed := 0.5  # Speed of the cow's rotation
 
 var direction := Vector3.ZERO
 var animation_player

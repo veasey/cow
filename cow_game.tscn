@@ -41,3 +41,5 @@ shape = SubResource("BoxShape3D_c0ksk")
 transform = Transform3D(0.00299138, 0.764235, -0.644931, -0.00258775, 0.644938, 0.764231, 0.999992, -0.000617183, 0.0039069, -11.5652, 10.8107, -2.11715)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
