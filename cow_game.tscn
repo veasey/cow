@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyl6q5ppylx7d"]
+[gd_scene load_steps=7 format=3 uid="uid://cyl6q5ppylx7d"]
 
 [ext_resource type="Script" uid="uid://c1y67o7j7qf2w" path="res://cow.gd" id="1_abhfc"]
 [ext_resource type="PackedScene" uid="uid://dqvmjxxfy1pnr" path="res://Cow.glb" id="1_glsep"]
+[ext_resource type="Script" uid="uid://bfowaks2teqf5" path="res://cow_game.gd" id="1_hopuf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hopuf"]
 albedo_color = Color(0.118976, 0.228719, 0.119361, 1)
@@ -13,6 +14,7 @@ material = SubResource("StandardMaterial3D_hopuf")
 size = Vector3(1.11182, 2.17651, 3.30762)
 
 [node name="CowGame" type="Node3D"]
+script = ExtResource("1_hopuf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.762668, 0.207369, -0.612646, 0, 0.94721, 0.320613, 0.64679, 0.244521, -0.722407, 0, 0, 0)
@@ -37,3 +39,5 @@ shape = SubResource("BoxShape3D_c0ksk")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.00299138, 0.764235, -0.644931, -0.00258775, 0.644938, 0.764231, 0.999992, -0.000617183, 0.0039069, -11.5652, 10.8107, -2.11715)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
