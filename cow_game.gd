@@ -21,6 +21,9 @@ func _input(event):
 	# Spacebar = MOO!
 	if event.is_action_pressed("moo"):
 		play_moo()
+	
+	if event.is_action_pressed("exit"):
+		get_tree().quit()  # Exits the game
 
 func play_moo():
 	var random_sound = moo_sounds[randi() % moo_sounds.size()]  # Pick a random sound
