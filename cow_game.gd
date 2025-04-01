@@ -13,6 +13,8 @@ func _ready():
 		preload("res://Sounds/Player/moo5.ogg"),
 		preload("res://Sounds/Player/moo6.ogg")
 	]
+	
+	SimpleGrass.set_interactive(true)
 
 func _input(event):
 	
