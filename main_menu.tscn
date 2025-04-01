@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0avs1oko0i4o"]
+
+[ext_resource type="PackedScene" uid="uid://dqvmjxxfy1pnr" path="res://Cow.glb" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://bxjjrh5xkan4h" path="res://main_menu.gd" id="1_7vrkn"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vrkn")
+
+[node name="Cow" parent="." instance=ExtResource("1_06t4h")]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 302.0
+offset_bottom = 30.0
+text = "MOORPG"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 87.0
+offset_right = 146.0
+offset_bottom = 117.0
+text = "BEGIN"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 122.0
+offset_right = 145.0
+offset_bottom = 152.0
+text = "EXIT"
+
+[connection signal="pressed" from="Button2" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_quit_button_pressed"]
