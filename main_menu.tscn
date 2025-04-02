@@ -17,14 +17,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7vrkn")
 
-[node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_top = 20.0
-offset_right = 1152.0
-offset_bottom = 156.0
-text = "MOORPG"
-horizontal_alignment = 1
-
 [node name="BEGIN" type="Button" parent="."]
 layout_mode = 0
 offset_left = 500.0
@@ -41,10 +33,24 @@ offset_right = 647.0
 offset_bottom = 561.0
 text = "EXIT"
 
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 1152.0
+offset_bottom = 156.0
+text = "MOORPG"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(381, 743)
+stream = ExtResource("2_7vrkn")
+autoplay = true
+
 [node name="SpinningCow" type="Node" parent="."]
 
 [node name="SubViewport" type="SubViewport" parent="SpinningCow"]
 transparent_bg = true
+gui_disable_input = true
 size = Vector2i(600, 600)
 
 [node name="Node3D" type="Node3D" parent="SpinningCow/SubViewport"]
@@ -56,16 +62,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.871388, 5.23593)
 script = ExtResource("4_jix8l")
 
 [node name="TextureRect" type="TextureRect" parent="SpinningCow"]
-offset_left = 269.0
-offset_top = 20.0
-offset_right = 869.0
-offset_bottom = 620.0
+offset_left = 277.0
+offset_top = -122.0
+offset_right = 877.0
+offset_bottom = 478.0
 texture = SubResource("ViewportTexture_jix8l")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(381, 743)
-stream = ExtResource("2_7vrkn")
-autoplay = true
 
 [connection signal="pressed" from="BEGIN" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="EXIT" to="." method="_on_quit_button_pressed"]
