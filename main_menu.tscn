@@ -51,7 +51,8 @@ text = "'W' = Move Forward
 'S' = Move Backward
 'A' = Turn Left
 'D' = Turn Right
-'SPACE BAR' = Moo"
+'SPACE BAR' = Moo
+'J' = Jump"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(381, 743)
