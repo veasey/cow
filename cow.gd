@@ -22,6 +22,11 @@ func _physics_process(delta):
 		direction = -transform.basis.z
 	if Input.is_action_pressed("move_backward"):
 		direction = transform.basis.z
+		
+	if Input.is_action_pressed("jump"):
+		animation_player.play("jump")
+		move_and_slide
+		return;
 	
 	# Normalize direction to avoid faster diagonal movement
 	direction = direction.normalized()
