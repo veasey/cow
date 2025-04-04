@@ -47,13 +47,20 @@ func _physics_process(delta):
 
 	# Play animations
 	if direction != Vector3.ZERO:
-		_reset_idle_timer()  # Reset idle timer if moving
+		_reset_idle_timer()
 		if animation_player != null:
-			if not animation_player.is_playing() or animation_player.current_animation != "walk":
-				animation_player.play("walk")
+			if not animation_player.is_playing() or animation_player.current_animation != "walking":
+				var is_moving_backward = direction.dot(-transform.basis.z) < 0
+				if is_moving_backward:
+					print("backwards")
+					animation_player.play_backwards("walking")
+				else:
+					print("forwards")
+					animation_player.play("walking")
 	else:
-		if animation_player != null and animation_player.is_playing() and animation_player.current_animation == "walk":
-			animation_player.stop()
+		if animation_player != null and animation_player.is_playing() and animation_player.current_animation == "walking":
+			animation_player.stop(true)
+		
 
 func _on_idle_timer_timeout():
 	if direction == Vector3.ZERO and rotation_direction == 0.0:
