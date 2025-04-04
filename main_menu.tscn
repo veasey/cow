@@ -69,17 +69,22 @@ size = Vector2i(600, 600)
 [node name="Node3D" type="Node3D" parent="SpinningCow/SubViewport"]
 
 [node name="Camera3D" type="Camera3D" parent="SpinningCow/SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.871388, 5.23593)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.871388, 3.79953)
 
 [node name="Cow" parent="SpinningCow/SubViewport/Node3D" instance=ExtResource("3_fu7sn")]
 script = ExtResource("4_jix8l")
 
 [node name="TextureRect" type="TextureRect" parent="SpinningCow"]
-offset_left = 277.0
-offset_top = -122.0
-offset_right = 877.0
-offset_bottom = 478.0
+z_index = -99
+z_as_relative = false
+offset_left = 272.0
+offset_top = 91.0
+offset_right = 872.0
+offset_bottom = 691.0
+scale = Vector2(1, 0.6)
 texture = SubResource("ViewportTexture_jix8l")
+expand_mode = 2
+stretch_mode = 2
 
 [connection signal="pressed" from="BEGIN" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="EXIT" to="." method="_on_quit_button_pressed"]
