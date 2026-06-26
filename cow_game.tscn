@@ -1,10 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://cyl6q5ppylx7d"]
+[gd_scene format=4 uid="uid://cyl6q5ppylx7d"]
 
 [ext_resource type="Script" uid="uid://c1y67o7j7qf2w" path="res://cow.gd" id="1_abhfc"]
-[ext_resource type="PackedScene" uid="uid://dqvmjxxfy1pnr" path="res://Cow.glb" id="1_glsep"]
+[ext_resource type="PackedScene" uid="uid://dstdryirwtvgt" path="res://Cow.glb" id="1_glsep"]
 [ext_resource type="Script" uid="uid://bfowaks2teqf5" path="res://cow_game.gd" id="1_hopuf"]
 [ext_resource type="Shader" uid="uid://bi3o8elbtqoni" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="2_c0ksk"]
-[ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="3_wumtv"]
+[ext_resource type="Texture2D" uid="uid://ck1jdxjmqxrue" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="3_wumtv"]
 [ext_resource type="Script" uid="uid://2juaclm8gc1n" path="res://addons/simplegrasstextured/grass.gd" id="4_a188g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wumtv"]
@@ -20,29 +20,6 @@ albedo_color = Color(0, 0.0901961, 0, 1)
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_c0ksk")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("3_wumtv")
-shader_parameter/texture_frames = Vector2(1, 1)
-shader_parameter/light_mode = 1
-shader_parameter/alpha_scissor_threshold = 0.5
-shader_parameter/normal_scale = 1.0
-shader_parameter/metallic = 0.0
-shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/roughness = 1.0
-shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/specular = 0.5
-shader_parameter/scale_h = 1.0
-shader_parameter/scale_w = 1.0
-shader_parameter/scale_var = -0.25
-shader_parameter/grass_strength = 0.55
-shader_parameter/optimization_by_distance = false
-shader_parameter/optimization_level = 7.0
-shader_parameter/optimization_dist_min = 10.0
-shader_parameter/optimization_dist_max = 50.0
-shader_parameter/grass_size_y = 1.0
-shader_parameter/interactive_mode = true
-shader_parameter/interactive_level_xz = 3.0
-shader_parameter/interactive_level_y = 0.3
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_g5lsj"]
 _surfaces = [{
@@ -81,26 +58,26 @@ size = Vector3(0.00750351, 4, 28.8642)
 [sub_resource type="BoxShape3D" id="BoxShape3D_c0ksk"]
 size = Vector3(1.11182, 2.17651, 3.30762)
 
-[node name="CowGame" type="Node3D"]
+[node name="CowGame" type="Node3D" unique_id=750064247]
 script = ExtResource("1_hopuf")
 
-[node name="Floor" type="CSGMesh3D" parent="."]
+[node name="Floor" type="CSGMesh3D" parent="." unique_id=1756992218]
 transform = Transform3D(200, 0, 0, 0, 10, 0, 0, 0, 200, 0, -5.31847, 0)
 mesh = SubResource("BoxMesh_wumtv")
 material = SubResource("StandardMaterial3D_c0ksk")
 
-[node name="Grass" type="MeshInstance3D" parent="Floor"]
+[node name="Grass" type="MeshInstance3D" parent="Floor" unique_id=1197418007]
 transform = Transform3D(0.005, 0, 0, 0, 0.1, 0, 0, 0, 0.005, 0, 9.19497, 0)
 mesh = SubResource("PlaneMesh_s5ssi")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor/Grass"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor/Grass" unique_id=1230158578]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Grass/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Grass/StaticBody3D" unique_id=1329722575]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -136.84, 0)
 shape = SubResource("BoxShape3D_s5ssi")
 
-[node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="Floor/Grass"]
+[node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="Floor/Grass" unique_id=582513839]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2235, -41.4535, 19.42)
 multimesh = SubResource("MultiMesh_c0ksk")
 script = ExtResource("4_a188g")
@@ -115,1189 +92,1189 @@ sgt_follow_normal = false
 metadata/_custom_type_script = "uid://2juaclm8gc1n"
 metadata/SimpleGrassTextured = "2.0.5"
 
-[node name="Fence" type="Node3D" parent="."]
+[node name="Fence" type="Node3D" parent="." unique_id=626590743]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0969252, -9.53674e-07, -0.0350733)
 
-[node name="Fence Side2" type="Node" parent="Fence"]
+[node name="Fence Side2" type="Node" parent="Fence" unique_id=1299503526]
 
-[node name="Fence Section" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section" type="Node3D" parent="Fence/Fence Side2" unique_id=910363834]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.132777, -1.90735e-06, 2.32691)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section" unique_id=305703748]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section/Post" unique_id=1450330298]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section/Post" unique_id=845008505]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section2" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section2" type="Node3D" parent="Fence/Fence Side2" unique_id=1699246353]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.164969, -2.86102e-06, 1.03662)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section2"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section2" unique_id=530432797]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section2/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section2/Post" unique_id=439060172]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section2/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section2/Post" unique_id=1499421408]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section3" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section3" type="Node3D" parent="Fence/Fence Side2" unique_id=1386449962]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.162429, -2.86102e-06, -0.100514)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section3"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section3" unique_id=1211926349]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section3/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section3/Post" unique_id=96931110]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section3/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section3/Post" unique_id=493164624]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section4" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section4" type="Node3D" parent="Fence/Fence Side2" unique_id=171621894]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.15951, -2.86102e-06, -1.40702)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section4"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section4" unique_id=1349030353]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section4/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section4/Post" unique_id=396710530]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section4/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section4/Post" unique_id=863850768]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section5" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section5" type="Node3D" parent="Fence/Fence Side2" unique_id=262972900]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.156279, -2.86102e-06, -2.85322)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section5"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section5" unique_id=120290449]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section5/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section5/Post" unique_id=379568074]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section5/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section5/Post" unique_id=1784577311]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section6" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section6" type="Node3D" parent="Fence/Fence Side2" unique_id=154475726]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.153856, -2.86102e-06, -3.93762)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section6"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section6" unique_id=269145923]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section6/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section6/Post" unique_id=1467609519]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section6/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section6/Post" unique_id=385524485]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section7" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section7" type="Node3D" parent="Fence/Fence Side2" unique_id=580793960]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.22019, -3.8147e-06, 10.0556)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section7"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section7" unique_id=1517978220]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section7/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section7/Post" unique_id=982030541]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section7/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section7/Post" unique_id=548022767]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section8" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section8" type="Node3D" parent="Fence/Fence Side2" unique_id=218127139]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.25238, -4.76837e-06, 8.7653)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section8"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section8" unique_id=498477952]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section8/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section8/Post" unique_id=315837707]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section8/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section8/Post" unique_id=488595958]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section9" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section9" type="Node3D" parent="Fence/Fence Side2" unique_id=1477886484]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.24984, -4.76837e-06, 7.62816)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section9"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section9" unique_id=1644831969]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section9/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section9/Post" unique_id=1819257602]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section9/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section9/Post" unique_id=1162511006]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section10" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section10" type="Node3D" parent="Fence/Fence Side2" unique_id=1710952440]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.246921, -4.76837e-06, 6.32165)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section10"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section10" unique_id=1746481490]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section10/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section10/Post" unique_id=841589224]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section10/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section10/Post" unique_id=610654182]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section11" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section11" type="Node3D" parent="Fence/Fence Side2" unique_id=1858596183]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.24369, -4.76837e-06, 4.87545)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section11"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section11" unique_id=1295199958]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section11/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section11/Post" unique_id=1032477918]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section11/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section11/Post" unique_id=1668238907]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section12" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section12" type="Node3D" parent="Fence/Fence Side2" unique_id=664743232]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.241267, -4.76837e-06, 3.79106)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section12"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section12" unique_id=1449594682]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section12/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section12/Post" unique_id=407530899]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section12/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section12/Post" unique_id=1092343818]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section16" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section16" type="Node3D" parent="Fence/Fence Side2" unique_id=1320684217]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.354004, -8.58307e-06, -8.54368)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section16"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section16" unique_id=966388671]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section16/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section16/Post" unique_id=14194703]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section16/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section16/Post" unique_id=1921338987]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section15" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section15" type="Node3D" parent="Fence/Fence Side2" unique_id=611145416]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.285981, -6.67572e-06, -7.59418)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section15"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section15" unique_id=729307301]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section15/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section15/Post" unique_id=959657468]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section15/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section15/Post" unique_id=2067828887]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section14" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section14" type="Node3D" parent="Fence/Fence Side2" unique_id=833965181]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.218294, -4.76837e-06, -6.49212)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section14"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section14" unique_id=1442964066]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section14/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section14/Post" unique_id=1755971400]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section14/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section14/Post" unique_id=1713421548]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section13" type="Node3D" parent="Fence/Fence Side2"]
+[node name="Fence Section13" type="Node3D" parent="Fence/Fence Side2" unique_id=551545137]
 transform = Transform3D(0.00223406, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00223406, -0.151214, -2.86102e-06, -5.12011)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section13"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section13" unique_id=898886159]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section13/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section13/Post" unique_id=833174304]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section13/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side2/Fence Section13/Post" unique_id=1740622069]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Side" type="Node" parent="Fence"]
+[node name="Fence Side" type="Node" parent="Fence" unique_id=1820168363]
 
-[node name="Fence Section" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section" type="Node3D" parent="Fence/Fence Side" unique_id=1089316875]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53665, -1.90735e-06, -0.0701466)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section" unique_id=2075614824]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section/Post" unique_id=775837463]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section/Post" unique_id=989354831]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section2" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section2" type="Node3D" parent="Fence/Fence Side" unique_id=2100642370]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24644, -2.86102e-06, -0.10522)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section2"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section2" unique_id=225354970]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section2/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section2/Post" unique_id=398619068]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section2/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section2/Post" unique_id=154291093]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section3" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section3" type="Node3D" parent="Fence/Fence Side" unique_id=947132060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109298, -2.86102e-06, -0.10522)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section3"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section3" unique_id=910192438]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section3/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section3/Post" unique_id=1771967695]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section3/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section3/Post" unique_id=1856931639]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section4" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section4" type="Node3D" parent="Fence/Fence Side" unique_id=509421018]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19722, -2.86102e-06, -0.10522)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section4"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section4" unique_id=2100808567]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section4/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section4/Post" unique_id=135859299]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section4/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section4/Post" unique_id=2145314629]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section5" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section5" type="Node3D" parent="Fence/Fence Side" unique_id=333023371]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64342, -2.86102e-06, -0.10522)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section5"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section5" unique_id=264436607]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section5/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section5/Post" unique_id=42961370]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section5/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section5/Post" unique_id=1416886777]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section6" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section6" type="Node3D" parent="Fence/Fence Side" unique_id=2025224724]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72781, -2.86102e-06, -0.10522)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section6"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section6" unique_id=1469507113]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section6/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section6/Post" unique_id=1466571366]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section6/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section6/Post" unique_id=2058528496]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section7" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section7" type="Node3D" parent="Fence/Fence Side" unique_id=1940877503]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2655, -3.8147e-06, -0.140293)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section7"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section7" unique_id=939372872]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section7/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section7/Post" unique_id=1486277801]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section7/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section7/Post" unique_id=1444078250]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section8" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section8" type="Node3D" parent="Fence/Fence Side" unique_id=1401210707]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97529, -4.76837e-06, -0.175366)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section8"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section8" unique_id=870740124]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section8/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section8/Post" unique_id=1279387880]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section8/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section8/Post" unique_id=1799909958]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section9" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section9" type="Node3D" parent="Fence/Fence Side" unique_id=922925905]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.83815, -4.76837e-06, -0.175366)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section9"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section9" unique_id=939407733]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section9/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section9/Post" unique_id=470224187]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section9/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section9/Post" unique_id=2055274195]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section10" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section10" type="Node3D" parent="Fence/Fence Side" unique_id=281305446]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.53164, -4.76837e-06, -0.175366)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section10"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section10" unique_id=1311947713]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section10/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section10/Post" unique_id=1004463356]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section10/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section10/Post" unique_id=1640003191]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section11" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section11" type="Node3D" parent="Fence/Fence Side" unique_id=1806977593]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08543, -4.76837e-06, -0.175366)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section11"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section11" unique_id=1807463928]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section11/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section11/Post" unique_id=1987419945]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section11/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section11/Post" unique_id=417363929]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section12" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section12" type="Node3D" parent="Fence/Fence Side" unique_id=128664964]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00104, -4.76837e-06, -0.175366)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section12"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section12" unique_id=537194511]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section12/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section12/Post" unique_id=1518322944]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section12/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section12/Post" unique_id=745704090]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section16" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section16" type="Node3D" parent="Fence/Fence Side" unique_id=1460175195]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.33342, -8.58307e-06, -0.31566)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section16"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section16" unique_id=1691447909]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section16/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section16/Post" unique_id=243603723]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section16/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section16/Post" unique_id=1575297021]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section15" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section15" type="Node3D" parent="Fence/Fence Side" unique_id=96869090]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.38408, -6.67572e-06, -0.245513)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section15"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section15" unique_id=1077110641]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section15/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section15/Post" unique_id=278737436]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section15/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section15/Post" unique_id=923604638]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section14" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section14" type="Node3D" parent="Fence/Fence Side" unique_id=557534502]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28217, -4.76837e-06, -0.175366)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section14"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section14" unique_id=156894913]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section14/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section14/Post" unique_id=2113872990]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section14/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section14/Post" unique_id=1831664389]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section13" type="Node3D" parent="Fence/Fence Side"]
+[node name="Fence Section13" type="Node3D" parent="Fence/Fence Side" unique_id=2147483495]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91032, -2.86102e-06, -0.10522)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section13"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section13" unique_id=1395587134]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section13/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section13/Post" unique_id=1378919851]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section13/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side/Fence Section13/Post" unique_id=1815343866]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Side3" type="Node" parent="Fence"]
+[node name="Fence Side3" type="Node" parent="Fence" unique_id=75653639]
 
-[node name="Fence Section" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section" type="Node3D" parent="Fence/Fence Side3" unique_id=1612812273]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.194931, -1.90735e-06, -2.29974)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section" unique_id=1087451349]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section/Post" unique_id=508132630]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section/Post" unique_id=1848024438]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section2" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section2" type="Node3D" parent="Fence/Fence Side3" unique_id=1862719418]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.213496, -2.86102e-06, -1.00918)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section2"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section2" unique_id=1297343105]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section2/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section2/Post" unique_id=2010412931]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section2/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section2/Post" unique_id=1125978253]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section3" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section3" type="Node3D" parent="Fence/Fence Side3" unique_id=1468814813]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.198948, -2.86102e-06, 0.127869)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section3"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section3" unique_id=270022225]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section3/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section3/Post" unique_id=1138624465]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section3/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section3/Post" unique_id=513314303]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section4" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section4" type="Node3D" parent="Fence/Fence Side3" unique_id=2083350739]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.182235, -2.86102e-06, 1.43427)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section4"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section4" unique_id=497495048]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section4/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section4/Post" unique_id=1283384697]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section4/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section4/Post" unique_id=1129370788]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section5" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section5" type="Node3D" parent="Fence/Fence Side3" unique_id=1628746750]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.163734, -2.86102e-06, 2.88036)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section5"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section5" unique_id=1687848343]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section5/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section5/Post" unique_id=1399793576]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section5/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section5/Post" unique_id=160940566]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section6" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section6" type="Node3D" parent="Fence/Fence Side3" unique_id=494000668]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.149861, -2.86102e-06, 3.96467)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section6"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section6" unique_id=841114211]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section6/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section6/Post" unique_id=576905186]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section6/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section6/Post" unique_id=1676249726]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section7" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section7" type="Node3D" parent="Fence/Fence Side3" unique_id=1470170693]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.363946, -3.8147e-06, -10.0271)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section7"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section7" unique_id=1021354171]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section7/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section7/Post" unique_id=1296280126]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section7/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section7/Post" unique_id=33560028]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section8" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section8" type="Node3D" parent="Fence/Fence Side3" unique_id=1588452942]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.382509, -4.76837e-06, -8.7365)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section8"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section8" unique_id=532460725]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section8/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section8/Post" unique_id=334203142]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section8/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section8/Post" unique_id=167203971]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section9" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section9" type="Node3D" parent="Fence/Fence Side3" unique_id=767212593]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.367963, -4.76837e-06, -7.59945)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section9"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section9" unique_id=1118718197]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section9/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section9/Post" unique_id=1455192563]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section9/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section9/Post" unique_id=557576221]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section10" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section10" type="Node3D" parent="Fence/Fence Side3" unique_id=949872892]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.351248, -4.76837e-06, -6.29305)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section10"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section10" unique_id=219096648]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section10/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section10/Post" unique_id=1355535376]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section10/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section10/Post" unique_id=1282500289]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section11" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section11" type="Node3D" parent="Fence/Fence Side3" unique_id=599885084]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.332748, -4.76837e-06, -4.84696)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section11"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section11" unique_id=1254198705]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section11/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section11/Post" unique_id=1630171892]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section11/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section11/Post" unique_id=1634546734]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section12" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section12" type="Node3D" parent="Fence/Fence Side3" unique_id=513017719]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.318876, -4.76837e-06, -3.76266)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section12"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section12" unique_id=136275611]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section12/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section12/Post" unique_id=1477061822]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section12/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section12/Post" unique_id=728622046]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section16" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section16" type="Node3D" parent="Fence/Fence Side3" unique_id=822385662]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.301363, -8.58307e-06, 8.57259)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section16"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section16" unique_id=1945697889]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section16/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section16/Post" unique_id=1703011514]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section16/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section16/Post" unique_id=320155361]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section15" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section15" type="Node3D" parent="Fence/Fence Side3" unique_id=1414195077]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.243369, -6.67572e-06, 7.62243)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section15"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section15" unique_id=615712030]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section15/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section15/Post" unique_id=524895855]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section15/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section15/Post" unique_id=1961738434]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section14" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section14" type="Node3D" parent="Fence/Fence Side3" unique_id=1957343150]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.187322, -4.76837e-06, 6.51971)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section14"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section14" unique_id=1828154540]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section14/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section14/Post" unique_id=1725616676]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section14/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section14/Post" unique_id=1454980803]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section13" type="Node3D" parent="Fence/Fence Side3"]
+[node name="Fence Section13" type="Node3D" parent="Fence/Fence Side3" unique_id=1636678596]
 transform = Transform3D(-0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, -0.0127929, 0.134734, -2.86102e-06, 5.14707)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section13"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section13" unique_id=2106243462]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section13/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section13/Post" unique_id=1824597303]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section13/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side3/Fence Section13/Post" unique_id=850952423]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Side4" type="Node" parent="Fence"]
+[node name="Fence Side4" type="Node" parent="Fence" unique_id=1808739533]
 
-[node name="Fence Section" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section" type="Node3D" parent="Fence/Fence Side4" unique_id=1926029544]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, 2.58974, -1.90735e-06, 0.280331)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section" unique_id=1523508617]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section/Post" unique_id=103344123]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section/Post" unique_id=1073933357]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section2" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section2" type="Node3D" parent="Fence/Fence Side4" unique_id=684155924]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, 1.29932, -2.86102e-06, 0.306937)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section2"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section2" unique_id=1939532241]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section2/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section2/Post" unique_id=473995559]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section2/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section2/Post" unique_id=1834331467]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section3" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section3" type="Node3D" parent="Fence/Fence Side4" unique_id=1333150311]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, 0.162202, -2.86102e-06, 0.299475)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section3"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section3" unique_id=1282195309]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section3/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section3/Post" unique_id=1957337663]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section3/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section3/Post" unique_id=1608203932]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section4" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section4" type="Node3D" parent="Fence/Fence Side4" unique_id=1916127188]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, -1.14428, -2.86102e-06, 0.290901)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section4"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section4" unique_id=2071498697]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section4/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section4/Post" unique_id=420455172]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section4/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section4/Post" unique_id=459800563]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section5" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section5" type="Node3D" parent="Fence/Fence Side4" unique_id=2120413863]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, -2.59046, -2.86102e-06, 0.28141)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section5"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section5" unique_id=900784809]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section5/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section5/Post" unique_id=1774296614]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section5/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section5/Post" unique_id=860779249]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section6" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section6" type="Node3D" parent="Fence/Fence Side4" unique_id=1559830201]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, -3.67483, -2.86102e-06, 0.274294)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section6"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section6" unique_id=900102376]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section6/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section6/Post" unique_id=848975061]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section6/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section6/Post" unique_id=1652225152]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section7" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section7" type="Node3D" parent="Fence/Fence Side4" unique_id=17476964]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, 10.318, -3.8147e-06, 0.401196)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section7"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section7" unique_id=1792501291]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section7/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section7/Post" unique_id=460101910]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section7/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section7/Post" unique_id=1296869118]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section8" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section8" type="Node3D" parent="Fence/Fence Side4" unique_id=1758912811]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, 9.02754, -4.76837e-06, 0.4278)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section8"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section8" unique_id=904094473]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section8/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section8/Post" unique_id=2140968673]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section8/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section8/Post" unique_id=877151392]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section9" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section9" type="Node3D" parent="Fence/Fence Side4" unique_id=1725892276]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, 7.89043, -4.76837e-06, 0.420338)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section9"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section9" unique_id=1989499959]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section9/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section9/Post" unique_id=822260770]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section9/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section9/Post" unique_id=616917577]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section10" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section10" type="Node3D" parent="Fence/Fence Side4" unique_id=1607343666]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, 6.58394, -4.76837e-06, 0.411764)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section10"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section10" unique_id=1464910079]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section10/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section10/Post" unique_id=1257417301]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section10/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section10/Post" unique_id=1792690516]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section11" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section11" type="Node3D" parent="Fence/Fence Side4" unique_id=222628997]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, 5.13777, -4.76837e-06, 0.402273)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section11"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section11" unique_id=1996249468]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section11/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section11/Post" unique_id=1179309014]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section11/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section11/Post" unique_id=1146750448]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section12" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section12" type="Node3D" parent="Fence/Fence Side4" unique_id=15892577]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, 4.0534, -4.76837e-06, 0.395157)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section12"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section12" unique_id=1628154600]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section12/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section12/Post" unique_id=1457727265]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section12/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section12/Post" unique_id=1173320508]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section16" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section16" type="Node3D" parent="Fence/Fence Side4" unique_id=387163124]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, -8.28172, -8.58307e-06, 0.454503)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section16"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section16" unique_id=850241248]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section16/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section16/Post" unique_id=208531417]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section16/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section16/Post" unique_id=820988956]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section15" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section15" type="Node3D" parent="Fence/Fence Side4" unique_id=1528140710]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, -7.33193, -6.67572e-06, 0.39059)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section15"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section15" unique_id=544079216]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section15/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section15/Post" unique_id=1618839337]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section15/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section15/Post" unique_id=240888446]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section14" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section14" type="Node3D" parent="Fence/Fence Side4" unique_id=1009705510]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, -6.22959, -4.76837e-06, 0.327674)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section14"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section14" unique_id=1638733574]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section14/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section14/Post" unique_id=1129137078]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section14/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section14/Post" unique_id=158016552]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="Fence Section13" type="Node3D" parent="Fence/Fence Side4"]
+[node name="Fence Section13" type="Node3D" parent="Fence/Fence Side4" unique_id=1526001123]
 transform = Transform3D(-0.999978, 0, 0.00656246, 0, 1, 0, -0.00656246, 0, -0.999978, -4.8573, -2.86102e-06, 0.266534)
 
-[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section13"]
+[node name="Post" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section13" unique_id=1037384308]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0.391914, 0.531512, 9.99394)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section13/Post"]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section13/Post" unique_id=21542565]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.039448, 0, 0, 0, 0.5, 1.34588, -0.242481, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section13/Post"]
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Fence/Fence Side4/Fence Section13/Post" unique_id=1613494126]
 transform = Transform3D(0.0262987, 1.12344, 0, -0.332872, 0.0394481, 0, 0, 0, 0.5, 1.34588, 0.574784, -0.0122738)
 material_override = SubResource("StandardMaterial3D_s5ssi")
 mesh = SubResource("CylinderMesh_c0ksk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Fence"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Fence" unique_id=807916549]
 transform = Transform3D(0.652564, 0, 0, 0, 1, 0, 0, 0, 1, -0.400122, 0, 0)
 
-[node name="FenceCollisionShape3D" type="CollisionShape3D" parent="Fence/StaticBody3D"]
+[node name="FenceCollisionShape3D" type="CollisionShape3D" parent="Fence/StaticBody3D" unique_id=1563223782]
 transform = Transform3D(13.672, 0, 0, 0, 0.383508, 0, 0, 0, 1.12362, -14.4932, 0, -0.266746)
 shape = SubResource("BoxShape3D_abhfc")
 
-[node name="FenceCollisionShape3D2" type="CollisionShape3D" parent="Fence/StaticBody3D"]
+[node name="FenceCollisionShape3D2" type="CollisionShape3D" parent="Fence/StaticBody3D" unique_id=768389483]
 transform = Transform3D(186.923, 0, 0, 0, 0.147077, 0, 0, 0, 1.2625, 15.6489, 0, -1.06031)
 shape = SubResource("BoxShape3D_abhfc")
 
-[node name="FenceCollisionShape3D3" type="CollisionShape3D" parent="Fence/StaticBody3D"]
+[node name="FenceCollisionShape3D3" type="CollisionShape3D" parent="Fence/StaticBody3D" unique_id=233674490]
 transform = Transform3D(2.46958, 0, 1.26239, 0, 0.147077, 0, -186.906, 0, 0.0166798, -2.59191, 0, 10.2549)
 shape = SubResource("BoxShape3D_abhfc")
 
-[node name="FenceCollisionShape3D4" type="CollisionShape3D" parent="Fence/StaticBody3D"]
+[node name="FenceCollisionShape3D4" type="CollisionShape3D" parent="Fence/StaticBody3D" unique_id=1619450822]
 transform = Transform3D(2.46958, 0, 1.26239, 0, 0.147077, 0, -186.906, 0, 0.0166798, -2.59191, 0, -10.3245)
 shape = SubResource("BoxShape3D_abhfc")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2037599377]
 transform = Transform3D(-0.762668, 0.207369, -0.612646, 0, 0.94721, 0.320613, 0.64679, 0.244521, -0.722407, 0, 0, 0)
 light_color = Color(1, 0.768627, 0.227451, 1)
 light_energy = 4.188
@@ -1305,17 +1282,17 @@ light_indirect_energy = 2.29
 shadow_enabled = true
 directional_shadow_max_distance = 159.0
 
-[node name="Cow" type="CharacterBody3D" parent="."]
+[node name="Cow" type="CharacterBody3D" parent="." unique_id=1615825813]
 script = ExtResource("1_abhfc")
 
-[node name="CowModel" parent="Cow" instance=ExtResource("1_glsep")]
+[node name="CowModel" parent="Cow" unique_id=1908336452 instance=ExtResource("1_glsep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0186618, 0, 0.647953)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cow"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cow" unique_id=631086085]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.406982, 1.00476, 0.54248)
 shape = SubResource("BoxShape3D_c0ksk")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1935541209]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=902298300]
 transform = Transform3D(0.712915, -0.529905, 0.459296, 0.0149151, 0.666277, 0.745555, -0.701092, -0.524667, 0.482902, 11.2379, 9.65844, 11.3522)

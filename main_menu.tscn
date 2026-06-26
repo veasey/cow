@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0avs1oko0i4o"]
+[gd_scene format=3 uid="uid://c0avs1oko0i4o"]
 
 [ext_resource type="Script" uid="uid://bxjjrh5xkan4h" path="res://main_menu.gd" id="1_7vrkn"]
-[ext_resource type="AudioStream" uid="uid://d2dfm8dmx656f" path="res://Sounds/Music/Cow_Main_Menu_Theme.mp3" id="2_7vrkn"]
-[ext_resource type="PackedScene" uid="uid://dqvmjxxfy1pnr" path="res://Cow.glb" id="3_fu7sn"]
+[ext_resource type="AudioStream" uid="uid://j5w673mkda6e" path="res://Sounds/Music/Cow_Main_Menu_Theme.mp3" id="2_7vrkn"]
+[ext_resource type="PackedScene" uid="uid://dstdryirwtvgt" path="res://Cow.glb" id="3_fu7sn"]
 [ext_resource type="Script" uid="uid://dtl1g2qwd3gds" path="res://menu_cow.gd" id="4_jix8l"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_jix8l"]
 viewport_path = NodePath("SpinningCow/SubViewport")
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=1798730200]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7vrkn")
 
-[node name="BEGIN" type="Button" parent="."]
+[node name="BEGIN" type="Button" parent="." unique_id=665281641]
 layout_mode = 0
 offset_left = 500.0
 offset_top = 495.0
@@ -25,7 +25,7 @@ offset_right = 647.0
 offset_bottom = 526.0
 text = "BEGIN"
 
-[node name="EXIT" type="Button" parent="."]
+[node name="EXIT" type="Button" parent="." unique_id=305139838]
 layout_mode = 0
 offset_left = 500.0
 offset_top = 530.0
@@ -33,7 +33,7 @@ offset_right = 647.0
 offset_bottom = 561.0
 text = "EXIT"
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." unique_id=1600901833]
 layout_mode = 0
 offset_top = 20.0
 offset_right = 1152.0
@@ -41,8 +41,8 @@ offset_bottom = 156.0
 text = "MOORPG"
 horizontal_alignment = 1
 
-[node name="Controls" type="Label" parent="."]
-layout_mode = 2
+[node name="Controls" type="Label" parent="." unique_id=1852850580]
+layout_mode = 0
 offset_left = 48.0
 offset_top = 20.0
 offset_right = 205.0
@@ -54,27 +54,27 @@ text = "'W' = Move Forward
 'SPACE BAR' = Moo
 'J' = Jump"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1240501678]
 position = Vector2(381, 743)
 stream = ExtResource("2_7vrkn")
 autoplay = true
 
-[node name="SpinningCow" type="Node" parent="."]
+[node name="SpinningCow" type="Node" parent="." unique_id=817554960]
 
-[node name="SubViewport" type="SubViewport" parent="SpinningCow"]
+[node name="SubViewport" type="SubViewport" parent="SpinningCow" unique_id=1726350534]
 transparent_bg = true
 gui_disable_input = true
 size = Vector2i(600, 600)
 
-[node name="Node3D" type="Node3D" parent="SpinningCow/SubViewport"]
+[node name="Node3D" type="Node3D" parent="SpinningCow/SubViewport" unique_id=2005448179]
 
-[node name="Camera3D" type="Camera3D" parent="SpinningCow/SubViewport/Node3D"]
+[node name="Camera3D" type="Camera3D" parent="SpinningCow/SubViewport/Node3D" unique_id=1172566793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.871388, 3.79953)
 
-[node name="Cow" parent="SpinningCow/SubViewport/Node3D" instance=ExtResource("3_fu7sn")]
+[node name="Cow" parent="SpinningCow/SubViewport/Node3D" unique_id=1768615152 instance=ExtResource("3_fu7sn")]
 script = ExtResource("4_jix8l")
 
-[node name="TextureRect" type="TextureRect" parent="SpinningCow"]
+[node name="TextureRect" type="TextureRect" parent="SpinningCow" unique_id=1727686020]
 z_index = -99
 z_as_relative = false
 offset_left = 272.0
